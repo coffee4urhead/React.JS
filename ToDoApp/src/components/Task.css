@@ -1,0 +1,17 @@
+.task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.task-complete-btn {
+    border: none;
+    padding: 5px;
+    border-radius: 12px;
+    width: 100px;
+    background-color: rgb(192, 192, 36);
+}
+
+.task-complete-btn:hover {
+    background-color: yellowgreen;
+}

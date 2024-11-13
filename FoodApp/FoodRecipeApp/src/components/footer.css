@@ -1,0 +1,57 @@
+footer#foot-section {
+    width: 100%;
+    background-color: rgb(137, 232, 198);
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; 
+    padding: 16px;
+}
+
+footer#foot-section > div.footer-card { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid grey;
+    border-inline: 2px solid grey;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+div.footer-card > * {
+    padding: 20px;
+}
+
+div.footer-card ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding-left: 0;
+    justify-content: space-evenly;
+}
+
+ul li::marker {
+    content: "🍎";
+}
+
+ul li:nth-child(1)::marker { content: "🍎"; } 
+ul li:nth-child(2)::marker { content: "🍋"; } 
+ul li:nth-child(3)::marker { content: "🍇"; } 
+ul li:nth-child(4)::marker { content: "🍓"; } 
+ul li:nth-child(5)::marker { content: "🍉"; } 
+ul li:nth-child(6)::marker { content: "🍌"; }
+
+ul li {
+    padding: 5px;
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: underline;
+}
+ul li:hover {
+    cursor: pointer;
+    padding: 3px;
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: underline;
+}

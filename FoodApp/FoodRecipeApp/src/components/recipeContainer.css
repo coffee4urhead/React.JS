@@ -1,0 +1,9 @@
+main {
+    width: 100%;
+    height: auto;
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; 
+    padding: 16px;
+}

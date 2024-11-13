@@ -1,0 +1,60 @@
+#task-add-cont {
+    width: 50%;
+    margin: 20px auto;
+    padding: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 12px;
+}
+
+#form-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+#form-cont input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#form-cont input[type="text"]:focus {
+    border: 1px solid #000000;
+    color: black;
+}
+
+#form-cont button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: rgb(192, 192, 36);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+#form-cont button:hover {
+    background-color: yellowgreen;
+}
+
+ul#added-tasks {
+    list-style-type: none;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+ul#added-tasks li {
+    border: 1px solid grey;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+ul#added-tasks li:hover {
+    background-color: silver;
+}
