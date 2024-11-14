@@ -5,7 +5,6 @@ interface FoodData {
     results: Array<{ id: number, title: string, image: string, imageType: string}>;
 }
 
-
 interface ISearchProps { 
     foodData: FoodData | undefined;
     setFoodData: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
