@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./recipeDetails.css"
 
 interface RecipeItem {
     id: number;
@@ -69,11 +70,11 @@ export default function RecipeDetails({ recipe }: RecipeDetailsProps) {
             <h2>{recipe.title}</h2>
             <img src={recipe.image} alt={recipe.title} />
             {recipeData ? (
-                <div>
+                <div className="extra-details">
                     <p><strong>Servings:</strong> {recipeData.servings}</p>
                     <p><strong>Ready In:</strong> {recipeData.readyInMinutes} minutes</p>
                     <p><strong>Cooking Time:</strong> {recipeData.cookingMinutes} minutes</p>
-                    <div>
+                    <div className="instructions-section">
                         <strong>Instructions:</strong>
                         <div
                             dangerouslySetInnerHTML={{
@@ -81,24 +82,29 @@ export default function RecipeDetails({ recipe }: RecipeDetailsProps) {
                             }}
                         />
                     </div>
-
-                    <div>
+                    <div className="summary-section">
                         <strong>Summary:</strong>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: recipeData.summary,
                             }}
                         />
+
                     </div>
 
-                    <h3>Ingredients</h3>
-                    <ul>
-                        {recipeData.extendedIngredients.map((ingredient, index) => (
-                            <li key={index}>
-                                {ingredient.original} <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt={ingredient.name} />
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="ingredients-holder">
+                        <h3>Ingredients</h3>
+                        <ul className="list-items-prepare">
+                            {recipeData.extendedIngredients.map((ingredient, index) => (
+                                <li key={index}>
+                                    <div>
+                                        {ingredient.original}
+                                        <img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`} alt={ingredient.name} />
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             ) : (
                 <p>Loading recipe details...</p>

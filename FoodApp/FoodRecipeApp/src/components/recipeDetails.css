@@ -1,0 +1,67 @@
+.recipe-details {
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-family: "Sour Gummy", sans-serif;
+    font-weight: 500;
+    
+}
+
+.recipe-details img {
+    border-radius: 12px;
+}
+
+.recipe-details h2 {
+    margin-block: 20px;
+}
+.extra-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.ingredients-holder {
+    background-color: antiquewhite;
+    text-align: center;
+    width: 70%;
+}
+
+.ingredients-holder ul > *  {
+    border-bottom: 2px solid grey;
+}
+
+.ingredients-holder ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+ul.list-items-prepare li {
+    text-decoration: none;
+}
+ul.list-items-prepare li div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+div.instructions-section {
+    border-block: 2px solid grey;
+}
+
+div.summary-section {
+    border-block: 2px solid grey;
+}
+
+div.instructions-section, div.summary-section {
+    width: 70%;
+    padding: 12px;
+}
