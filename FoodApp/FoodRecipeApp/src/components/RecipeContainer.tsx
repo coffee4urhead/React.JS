@@ -1,5 +1,7 @@
 import "./recipeContainer.css";
 import Recipe from "./Recipe";
+import RecipeNutrition from "./NutritionalLabel";
+import React, { useState } from "react";
 
 export interface RecipeItem {
     id: number;
@@ -12,6 +14,7 @@ interface FoodData {
     results: RecipeItem[];
 }
 
+
 interface IContainerProps {
     foodData: FoodData | undefined;
   setFoodData: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
@@ -19,6 +22,10 @@ interface IContainerProps {
 }
 
 export default function RecipeContainer({ foodData, setSelectedRecipe }: IContainerProps) {
+  const [nutritionLabel, setNutritionLabel] = useState<string | null>(null);
+
+  console.log(nutritionLabel);
+  
     return (
         <main>
           {foodData
@@ -32,6 +39,17 @@ export default function RecipeContainer({ foodData, setSelectedRecipe }: IContai
                 />
               ))
             : "No data"}
+
+           {foodData
+        ? foodData.results.map((food) => (
+            <RecipeNutrition
+              key={food.id}
+              title={food.title}
+              recipeId={food.id}
+              setNutritionLabel={setNutritionLabel} 
+            />
+          ))
+        : "No data"}
         </main>
       );
 }
