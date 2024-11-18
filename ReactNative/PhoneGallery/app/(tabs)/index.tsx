@@ -1,11 +1,15 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
+import { Image, StyleSheet, Platform, View, Text, Button, Pressable, Modal, StatusBar } from 'react-native';
+import { useState } from "react"
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
+const imageSplash = require("../../assets/images/splash-icon.png");
+
 export default function HomeScreen() {
+  const [isPressed, setPressStatus] = useState(false);
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -15,10 +19,37 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
+        <StatusBar backgroundColor={"lightgreen"} barStyle={"dark-content"}/>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Welcome! brother hello from the outside!</ThemedText>
         <HelloWave />
       </ThemedView>
+      <View className='subtitles' style={styles.subtitles}>
+        <Text>Hello from the other side!!!!!!: ADELLLE!</Text>
+        <Image className='image-splash' style={styles.imageSplash} source={imageSplash}></Image>
+        <Pressable onPress={() => console.log("Pressed the mobile image")}>
+        <Image className='image-splash' style={styles.imageSplash} source={{ uri: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTbipgznOMNlaltymK2xIUnyuBiwT2Gl293XCUH_s-ZznpcbXDo" }}></Image>
+        <Button title='Press to log' color={"blue"} onPress={() => setPressStatus(true)} />
+        
+        {/* presentationStyle is only for iOS */}
+
+        <Modal
+        style={styles.modalStyle}
+        visible={isPressed}
+        onRequestClose={() => setPressStatus(false)}
+        animationType='slide'
+        presentationStyle='pageSheet'>
+          <View>
+            <Text>Attention you pressed me</Text>
+            <Button title='close modal' color={"red"} onPress={() => setPressStatus(false)}></Button>
+          </View>
+        </Modal>
+        </Pressable>
+
+        <Pressable>
+          <Text onPress={() => console.log("Text pressed")} onLongPress={() => console.log("Stop pressing hard on the text")}>Pressable text</Text>
+        </Pressable>
+      </View>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
@@ -71,4 +102,25 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+  subtitles: {
+    backgroundColor: "yellow",
+    color: 'purple',
+    fontFamily: 'Papyrus sans-serif',
+    fontSize: 22,
+    padding: 10,
+    width: '100%',
+  },
+  imageSplash: {
+    width: 200,
+    height: 200,
+    resizeMode: "cover",
+    borderRadius: 12,
+  },
+  modalStyle: {
+    width: 300,
+    height: 200,
+    backgroundColor: "beige",
+    textAlign: "center",
+    fontStyle: "italic",
+  }
 });
